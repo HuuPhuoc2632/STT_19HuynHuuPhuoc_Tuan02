@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var f = function (relsolve, reject) {
+            relsolve();
+            reject();
+        }
+        var promise = new Promise(f);
+        promise
+            .then(
+                function () {
+                    return new Promise(function (resolve) {
+                        resolve("1");
+                    });
+                }
+            )
+            .then(
+                function (data) {
+                    console.log(data);
+                    return 2;
+                }
+            )
+            .then(
+                function (data) {
+                    console.log(data);
+                }
+            )
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
